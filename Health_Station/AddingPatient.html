@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/stethoscope.png">
+    <title>Add Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #588157;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            width: 600px;
+            height: 630px;
+            background-color: #a3b18a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select{
+            font-size: 20px;
+            width: 95%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #588157;
+            color: white;
+
+        }
+        select{
+            width: 587px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 97.5%;
+            padding-top: 10px;
+            margin-top: 20px;
+            height: 50px;
+            font-size: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .back-button-img{
+            height: 30px;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="AddingPatientProcess.php" method="post">
+
+        <a href="PatientRecord.php" class="back-button" ><img class="back-button-img" src="images/left-arrow.png"></a>
+
+        <h2>Add Patient Information</h2>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required autocomplete="off">
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required autocomplete="off">
+
+        <label for="middle_name">Middle Name:</label>
+        <input type="text" id="middle_name" name="middle_name" required autocomplete="off">
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate" required oninput="calculateAge()">
+
+        <label for="age_months"></label>
+        <input type="hidden" id="age_months" name="age_months" required autocomplete="off">
+
+        <label for="purok">Purok:</label>
+        <select class="purok" id="purok" name="purok" required>
+            <option value="1">Purok 1</option>
+            <option value="2">Purok 2</option>
+            <option value="3">Purok 3</option>
+            <option value="4">Purok 4</option>
+            <option value="5">Purok 5</option>
+            <option value="6">Purok 6</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        function calculateAge() {
+            var today = new Date();
+            var birthDate = new Date(document.getElementById("birthdate").value);
+    
+            // Calculate the difference in years
+            var ageYears = today.getFullYear() - birthDate.getFullYear();
+    
+            // Calculate the difference in months
+            var monthDiff = today.getMonth() - birthDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                ageYears--;
+                monthDiff = 12 + monthDiff; // Adjusting for negative month difference
+            }
+    
+            // Convert age to total months
+            var ageMonths = ageYears * 12 + monthDiff;
+    
+            // Update the age input field
+            document.getElementById("age_months").value = ageMonths + " months";
+        }
+    </script>
+</body>
+</html>

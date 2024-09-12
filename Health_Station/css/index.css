@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #588157;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.container {
+    display: flex; 
+    flex-direction: row; /* Default to row for larger screens */
+    justify-content: space-between;
+    align-items: center; 
+    width: 650px; 
+    background-color: #a3b18a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    color: white;
+    font-size: large;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 15px); /* Adjusted width for centered inputs */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-left: -5px; 
+    background-color: #588157;
+    font-size: large;
+    color: white;
+}
+
+input[type="submit"] {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: large;
+    width: 93%;
+    margin-top: 15px; 
+    margin-left: -5px;
+}
+
+input[type="submit"]:hover {
+    background-color: black;
+}
+
+.divider {
+    border-left: 5px solid black;
+    height: 350px;
+    margin: 0 20px;
+}
+
+img {
+    height: 330px;
+}
+
+h3 {
+    margin-left: -5px;
+}
+
+h1 {
+    margin-right: 15px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        width: 90%; /* Adjust width to fit smaller screens */
+    }
+
+    .divider {
+        border-left: none; /* Remove vertical divider */
+        border-top: 5px solid black; /* Add horizontal divider */
+        width: 80%; /* Adjust width for horizontal divider */
+        height: 0; /* Adjust height for horizontal divider */
+        margin: 20px 0;
+    }
+
+    img {
+        height: auto; /* Adjust image height */
+        width: 100%; /* Make image responsive */
+    }
+
+    input[type="submit"] {
+        width: 100%; /* Adjust width for submit button */
+        margin-left: 0;
+    }
+
+    input[type="text"], input[type="password"] {
+        width: 100%; /* Adjust width for text inputs */
+        margin-left: 0;
+    }
+
+    h1, h3 {
+        margin-left: 0; /* Adjust heading margins */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Reduce padding for very small screens */
+    }
+
+    input[type="submit"], input[type="text"], input[type="password"] {
+        font-size: medium; /* Adjust font size for smaller screens */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Adjust heading size */
+    }
+
+    h3 {
+        font-size: 1.2em; /* Adjust heading size */
+    }
+}
+.radio-button-user{
+    margin-right: 20px;
+}
